@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saurav kumar - Junior Research fellow</title>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #34495e;
+            --text: #2c3e50;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: rgb(255, 255, 255);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.05"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="white"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 100;
+            width: 100%;
+            text-align: center;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: white;
+        }
+
+        .header h2 {
+            font-size: 1.8rem;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .institution {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-top: 10px;
+            color: white;
+        }
+
+        /* Particles.js Container */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height:100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        /* Profile Image Styles */
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 30px;
+            border-radius: 50%;
+            border: 4px solid white;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Navigation */
+        .nav {
+            background: rgb(255, 255, 255);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+
+        .nav-link {
+            padding: 20px 25px;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--secondary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: var(--secondary);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after {
+            width: 80%;
+        }
+
+        /* Section Styles */
+        .section {
+            background: rgb(249, 236, 222);
+            margin: 40px 0;
+            padding: 60px 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--secondary), var(--accent));
+        }
+
+        .section h2 {
+            color: var(--primary);
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+
+        .section h3 {
+            color: var(--dark);
+            margin: 30px 0 15px 0;
+            font-size: 1.5rem;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-top: 30px;
+        }
+
+        .about-text {
+            flex: 2;
+            font-size: 1.1rem;
+        }
+
+        .about-actions {
+            flex: 1;
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--secondary);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .btn:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+        }
+
+        /* Skills Section - Enhanced Timeline */
+        .skills-timeline {
+            position: relative;
+            margin: 50px 0;
+        }
+
+        .timeline-track {
+            position: relative;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            margin: 40px 0 60px;
+        }
+
+        .timeline-progress {
+            position: absolute;
+            height: 100%;
+            background: linear-gradient(to right, var(--secondary), var(--accent));
+            border-radius: 4px;
+            width: 79%; /* Represents progress to present */
+        }
+
+        .timeline-years {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-top: -30px;
+        }
+
+        .year-marker {
+            text-align: center;
+            font-weight: bold;
+            color: var(--dark);
+            position: relative;
+        }
+
+        .year-marker::before {
+            content: '';
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 12px;
+            background: var(--secondary);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--secondary);
+        }
+
+        .skills-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .skill-category {
+            background: var(--light);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .skill-item {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .skill-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .skill-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+
+        .skill-duration {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+
+        /* Timeline for Education/Experience */
+        .timeline {
+            position: relative;
+            margin: 40px 0;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--secondary);
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            margin-bottom: 40px;
+            position: relative;
+            padding: 20px;
+            background: var(--light);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -39px;
+            top: 25px;
+            width: 15px;
+            height: 15px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--accent);
+        }
+
+        .year {
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        /* Blogs Section */
+        .blogs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .blog-card {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary);
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-date {
+            background: var(--secondary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .blog-card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .blog-card p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .blog-link {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .blog-link:hover {
+            color: var(--primary);
+        }
+
+        /* Hobby Section */
+        .hobby-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .hobby-item {
+            background: var(--light);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            border-top: 4px solid var(--secondary);
+        }
+
+        .hobby-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .hobby-item i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        /* Contact Section */
+        .contact-info {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border-left: 4px solid var(--accent);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 60px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 40px 20px;
+            }
+            
+            .skills-categories {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-container {
+                flex-wrap: wrap;
+            }
+            
+            .nav-link {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <!-- Header Section with Particle Background -->
+    <!-- Header Section with Particles.js -->
+    <header class="header">
+        <!-- Particles.js Container -->
+        <div id="particles-js"></div>
+        
+        <div class="container">
+            <div class="header-content">
+                <!-- Your Image -->
+                <div class="profile-image">
+                    <img src="saurav_profile.jpg" alt="Saurav Kumar">
+                </div>
+                
+                <h1>SAURAV KUMAR</h1>
+                <h2>JUNIOR RESEARCH FELLOW</h2>
+                <div class="institution">
+                    <p>Department of physics</p>
+                    <p>Indian Institute Of Technology Madras, Chennai, India</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container nav-container">
+            <a href="#about" class="nav-link">About</a>
+            <a href="#research" class="nav-link">Research</a>
+            <a href="#education" class="nav-link">Education</a>
+            <a href="#experience" class="nav-link">Experience</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#blogs" class="nav-link">Blogs</a>
+            <a href="#hobbies" class="nav-link">Hobbies</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- About Me Section -->
+        <section id="about" class="section">
+            <h2>A Bit About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I am currently working as a Junior Research Fellow in the Ultrafast Lasers and Optical Amplifiers Laboratory at the Department of Physics, IIT Madras. My research focuses on charge transfer processes in quantum dots, aiming to understand their fundamental photophysical mechanisms. Alongside my project, I am actively exploring various aspects of ultrafast optics, laser systems, and other experimental techniques employed in the lab.</p>
+                </div>
+                <div class="about-actions">
+                    <a href="#" class="btn"><i class="fas fa-book-reader"></i> Read More</a>
+                    <a href="#" class="btn"><i class="fas fa-download"></i> Download CV</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Interest Section -->
+        <section id="research" class="section">
+            <h2>Research Interest</h2>
+            
+            <h3>M.Sc. Project Work at a Glance</h3>
+                <p>
+                During my M.Sc. project at Prof. Prem B. Bisht’s Laboratory, IIT Madras, I had the opportunity to work in a well-established ultrafast optics laboratory, which helped me develop a deep interest in nonlinear light–matter interactions under ultrafast laser excitation.</b>
+                </p>
+
+                <p>
+                As part of my project, I learned to synthesize quantum dots from neem leaf extracts for optical limiting applications and subsequently characterized it's properties. This included studying their nonlinear optical response using the Z-scan technique, examining their linear optical behavior through absorption and photoluminescence (PL) measurements, and investigating their physical characteristics.
+                </p>
+
+                <p>
+                In addition, I gained hands-on experience with autocorrelation techniques to determine the pulse duration of ultrafast laser pulses and explored dispersion effects arising from pulse propagation through different media. I also studied higher harmonic generation, successfully generating second and third harmonics using nonlinear crystals, and explored multiphoton absorption phenomena in both dye samples and the synthesized quantum dots.
+                </p>
+
+            <h3>Current Research Interest:</h3>
+            <ul><li>Supercontinuum White Light Generation and all-wavelength Z-scan measurements in a single run</li>
+                <li>Quantum Optics and Single Photon Detector</li>
+                <li>Entangled photon generation from spontaneous parametric down conversion (SPDC)</li>
+                <li>Structured Beam (Laguerre Gaussian Vortex type) generation and application</li>
+                <li>Autocorrelation technique using different methods</li>
+                <li>Bragg and Self diffraction experiments</li>
+            </ul>
+        </section>
+
+        <!-- Educational Background -->
+        <section id="education" class="section">
+            <h2>Educational Background</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="year">2017</div>
+                    <p>Secondary School from Gyan Jyoti Residential Public School (CBSE), Patna</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="year">2019</div>
+                    <p>Higher Secondary Examination from RP College (BSEB), Patna</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="year">2019 - 2022</div>
+                    <p>Bachelor of Science (Physics) from Anugrah Narayan College (Patliputra University), Patna</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="year">2023 - 2025</div>
+                    <p>Master in Science (Physics) from Indian Institute of Technology, Madras</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Experience -->
+        <section id="experience" class="section">
+            <h2>Work Experience</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="year">2024 - 2025</div>
+                    <p><strong>M.Sc project</strong> in the project titled "Optical Limiting Using Neem Derived Quantum Dots" at the Department Of Physics, IIT Madras</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="year">2025 - present</div>
+                    <p><strong>Junior Research Fellow</strong> in the project titled "Charge-Trnsfer in Quantum Dots" in Ultrafast Lasers and Optical Amplifiers Group, Department of Physics, IIT Madras</p>
+                </div>
+            </div>
+
+            <h3>Research Activity</h3>
+            <h4>JOURNAL PUBLICATIONS</h4>
+            <ol>
+                <li>Nothing to see here yet: the ideas are brewing, simulations are running, and a few things are under construction. That’s exactly why I made this section — stay tuned for the “To Be Published Shortly”.</li>
+            </ol>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <h2>Skills</h2>
+            
+            <!-- Enhanced Timeline -->
+            <div class="skills-timeline">
+                <div class="timeline-track">
+                    <div class="timeline-progress"></div>
+                </div>
+                <div class="timeline-years">
+                    <div class="year-marker">2019</div>
+                    <div class="year-marker">2023</div>
+                    <div class="year-marker">2024</div>
+                    <div class="year-marker">2025</div>
+                    <div class="year-marker">Present</div>
+                    <div class="year-marker">2026</div>
+                </div>
+            </div>
+
+            <div class="skills-categories">
+                <div class="skill-category">
+                    <h3>Academic - Experimental</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">Autocorrelation technique for pulse duration measurement</div>
+                        <div class="skill-duration">2024 - Present</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Z-Scan technique</div>
+                        <div class="skill-duration">2024 - Present</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Laser optics, alignment, picosecond lasers, Femtosecond lasers, Quantum dots synthesis</div>
+                        <div class="skill-duration">2024 - Present</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Continuous Wavelength Z-Scan technique</div>
+                        <div class="skill-duration">2025 - Present</div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Academic - Data Analysis and Programming</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">C Programming</div>
+                        <div class="skill-duration">2023 - 2024</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">MathWorks MATLAB</div>
+                        <div class="skill-duration">2023 - 2025</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Python</div>
+                        <div class="skill-duration">2019 - Present</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Origin-Lab Software</div>
+                        <div class="skill-duration">2023 - Present</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Comsol Multiphysics</div>
+                        <div class="skill-duration">2025 - Present</div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Presentation- Tools</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">Microsoft Office (Powerpoint, Excel, Word)</div>
+                        <div class="skill-duration">2019 - Present</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">LaTeX</div>
+                        <div class="skill-duration">2023 - Present</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Figma</div>
+                        <div class="skill-duration">2025 - Present</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blogs Section -->
+        <section id="blogs" class="section">
+            <h2>Blogs & Updates</h2>
+            <div class="blogs-grid">
+                <div class="blog-card">
+                    <div class="blog-date">Coming Soon</div>
+                    <h3>My Research Journey</h3>
+                    <p>Sharing insights from my daily research work and experiments.</p>
+                    <a href="#" class="blog-link">Read More →</a>
+                </div>
+                
+                <div class="blog-card">
+                    <div class="blog-date">Coming Soon</div>
+                    <h3>Instrumentation Guides</h3>
+                    <p>Detailed guides on lab instruments and experimental setups.</p>
+                    <a href="#" class="blog-link">Read More →</a>
+                </div>
+                
+                <div class="blog-card">
+                    <div class="blog-date">Coming Soon</div>
+                    <h3>Quantum Physics Explained</h3>
+                    <p>Simplifying complex quantum concepts for beginners.</p>
+                    <a href="#" class="blog-link">Read More →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hobby Section -->
+        <section id="hobbies" class="section">
+            <h2>Hobby</h2>
+            <div class="hobby-grid">
+                <div class="hobby-item">
+                    <i class="fas fa-microchip"></i>
+                    <h3>Microcontroller (Arduino) & Electronics</h3>
+                    <div class="skill-duration">2023 - Present</div>
+                </div>
+                <div class="hobby-item">
+                    <i class="fas fa-code"></i>
+                    <h3>Web Development</h3>
+                    <div class="skill-duration">HTML, CSS, PHP, JavaScript, Python</div>
+                </div>
+                <div class="hobby-item">
+                    <i class="fas fa-cube"></i>
+                    <h3>3D Modeling</h3>
+                    <div class="skill-duration">Blender</div>
+                </div>
+            </div>
+
+            <div class="about-text" style="margin-top: 40px;">
+                <h3>About Me</h3>
+                <p>I was born on 1st of may 2002, in a small town, Naubatpur located about 25 km from Patna, Bihar. I have done my schooling in my home town. I grew my interest in science during my school days from watching science documantries on discovery science channel and then further by reading famous scientific books. I am always interested in teaching, reading books of completely different genere, watching movies and working out and finally travelling.</p>
+            </div>
+
+            <div class="contact-info">
+                <h3>Contact:</h3>
+                <p><strong>Saurav Kumar</strong><br>
+                Email: kumarsaurav39ab@gmail.com<br>
+                Room No: HSB307, Department of Physics<br>
+                IIT Madras</p>
+            </div>
+        </section>
+
+        </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Saurav Kumar. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Particles.js Configuration
+        particlesJS('particles-js', {
+        particles: {
+            number: {
+            value: 80,
+            density: {
+                enable: true,
+                value_area: 800
+            }
+            },
+            color: {
+            value: ['#ffffff', '#3498db', '#e74c3c', '#2ecc71', '#9b59b6']
+            },
+            shape: {
+            type: 'circle'
+            },
+            opacity: {
+            value: 0.7,
+            random: true,
+            anim: {
+                enable: true,
+                speed: 1,
+                opacity_min: 0.1,
+                sync: false
+            }
+            },
+            size: {
+            value: 3,
+            random: true,
+            anim: {
+                enable: true,
+                speed: 2,
+                size_min: 0.1,
+                sync: false
+            }
+            },
+            line_linked: {
+            enable: true,
+            distance: 150,
+            color: '#ffffff',
+            opacity: 0.3,
+            width: 1
+            },
+            move: {
+            enable: true,
+            speed: 2,
+            direction: 'none',
+            random: true,
+            straight: false,
+            out_mode: 'bounce',
+            bounce: false,
+            attract: {
+                enable: false,
+                rotateX: 600,
+                rotateY: 1200
+            }
+            }
+        },
+        interactivity: {
+            detect_on: 'canvas',
+            events: {
+            onhover: {
+                enable: true,
+                mode: 'repulse'
+            },
+            onclick: {
+                enable: true,
+                mode: 'push'
+            },
+            resize: true
+            },
+            modes: {
+            grab: {
+                distance: 400,
+                line_linked: {
+                opacity: 1
+                }
+            },
+            bubble: {
+                distance: 400,
+                size: 40,
+                duration: 2,
+                opacity: 8,
+                speed: 3
+            },
+            repulse: {
+                distance: 100,
+                duration: 0.4
+            },
+            push: {
+                particles_nb: 4
+            },
+            remove: {
+                particles_nb: 2
+            }
+            }
+        },
+        retina_detect: true
+        });
+
+    </script>
+</body>
+</html>
